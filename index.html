@@ -5,152 +5,161 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>a little website for nayy 💌</title>
 
-<!-- FONT GEMES -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    body {
-        background: linear-gradient(135deg, #c7f0ff, #d4ffe6);
-        min-height: 100vh;
-        overflow-x: hidden;
-        text-align: center;
-        color: #2b2b2b;
-    }
+body {
+    background: linear-gradient(135deg, #c7f0ff, #d4ffe6);
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-align: center;
+    color: #2b2b2b;
+}
 
-    h1 {
-        margin-top: 60px;
-        font-size: 2.5rem;
-        color: #2a6f97;
-    }
+h1 {
+    margin-top: 60px;
+    font-size: 2.5rem;
+    color: #2a6f97;
+}
 
-    .subtitle {
-        margin-top: 10px;
-        font-size: 1.2rem;
-        color: #4a8f7a;
-    }
+.subtitle {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #4a8f7a;
+}
 
-    .menu {
-        margin-top: 50px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        padding: 20px;
-    }
+.menu {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
 
-    button {
-        background: white;
-        border: none;
-        padding: 15px 25px;
-        border-radius: 20px;
-        font-size: 1rem;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        transition: 0.3s;
-    }
+button {
+    background: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
 
-    button:hover {
-        transform: scale(1.1);
-        background: #e8fff5;
-    }
+button:hover {
+    transform: scale(1.1);
+    background: #e8fff5;
+}
 
-    .gallery {
-        margin-top: 60px;
-        padding: 20px;
-    }
+.gallery {
+    margin-top: 50px;
+    padding: 20px;
+}
 
-    .photos {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
+.photos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 
-    .photo-box {
-        width: 200px;
-        height: 200px;
-        background: #ffffffaa;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.9rem;
-        color: #777;
-        border: 2px dashed #9ed8c3;
-    }
+.photo-box {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid #bdebdc;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
 
-    /* POPUP */
-    .popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        background: white;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        width: 90%;
-        max-width: 400px;
-        z-index: 999;
-        transition: 0.3s;
-    }
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+    z-index: 999;
+    transition: 0.3s;
+}
 
-    .popup.active {
-        transform: translate(-50%, -50%) scale(1);
-    }
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
 
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.3);
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s;
-    }
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
 
-    .overlay.active {
-        opacity: 1;
-        pointer-events: all;
-    }
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
 
-    .close-btn {
-        margin-top: 20px;
-        background: #c7f0ff;
-    }
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear forwards;
+}
 
-    /* HEART ANIMATION */
-    .heart {
-        position: fixed;
-        top: -10px;
-        font-size: 20px;
-        animation: fall linear forwards;
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
     }
+}
 
-    @keyframes fall {
-        to {
-            transform: translateY(110vh);
-        }
-    }
+/* START SCREEN */
+#startScreen {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(135deg, #c7f0ff, #d4ffe6);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
 </style>
 </head>
-
 <body>
 
-<!-- MUSIC (GANTI LINK LAGU DI SINI JIKA MAU) -->
-<audio autoplay loop>
-    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" type="audio/mpeg">
+<!-- MUSIC FIX (ANTI AUTOPLAY BLOCK) -->
+<audio id="bgm" loop>
+    <source src="sound.mp3" type="audio/mpeg">
 </audio>
+
+<!-- OPENING SCREEN GEMES -->
+<div id="startScreen">
+    <h1>hi nayy 💌</h1>
+    <p>boo made this little website just for you</p>
+    <button onclick="startWebsite()">open it nayy 💗</button>
+</div>
 
 <h1>a little website for nayy 💌</h1>
 <p class="subtitle">from boo, yang selalu sayang nayy 🤍</p>
@@ -167,16 +176,9 @@
     <h2>our cute gallery 🫶</h2>
     <div class="photos">
         <img src="foto 1.jpeg" class="photo-box">
-
-
         <img src="foto 2.jpeg" class="photo-box">
-
-
         <img src="foto 3.jpeg" class="photo-box">
-
-
         <img src="foto 4.jpeg" class="photo-box">
-
     </div>
 </div>
 
@@ -184,41 +186,50 @@
 
 <div class="popup" id="popup">
     <div id="popup-text"></div>
-    <button class="close-btn" onclick="closePopup()">tutup ya nayy 🤍</button>
+    <br>
+    <button onclick="closePopup()">tutup ya nayy 🤍</button>
 </div>
 
 <script>
 const messages = {
-    love: "hii nayy 🤍 boo cuma mau bilang... setiap hari boo selalu sayang nayy, bahkan di hari hari sibuk sekalipun. nayy itu selalu ada di hati boo 💗",
-    cute: "ih nayy bandel yaa 😳 udah dibilang jangan dipencet tapi tetep dipencet… gemes banget sih nayy ini 😭💞",
-    reason: "boo sayang nayy karena nayy itu lembut, lucu, dan selalu punya tempat spesial di hati boo. sesederhana itu, tapi sedalam itu 🤍",
-    miss: "kalau nayy lagi baca ini, boo mau bilang... makasih ya udah tetep ada, udah sabar, dan udah jadi bagian terindah di hari hari boo 💌",
-    secret: "maaf ya nayy... boo tau akhir akhir ini boo belum bisa jadi yang terbaik dan belum punya banyak waktu buat selalu ada. tapi bukan berarti boo ga sayang. justru boo sayang banget sama nayy. di tengah sibuknya hari hari boo, nayy tetap jadi orang yang paling boo pikirin. boo minta maaf kalau kadang nayy ngerasa kurang diperhatiin. tapi perasaan boo ke nayy itu ga pernah berkurang, malah makin dalam. boo cuma lagi berjuang, sambil tetap sayang nayy sepenuh hati 🤍"
+love: "hii nayy 🤍 boo selalu sayang nayy, bahkan di hari sibuk sekalipun. nayy itu selalu ada di hati boo 💗",
+cute: "ih nayy bandel yaa 😳 udah dibilang jangan dipencet tapi tetep dipencet… gemes banget sih nayy ini 😭💞",
+reason: "boo sayang nayy karena nayy itu lembut, lucu, dan selalu punya tempat spesial di hati boo 🤍",
+miss: "makasih ya nayy udah tetep ada, udah sabar, dan jadi bagian terindah di hari hari boo 💌",
+secret: "maaf ya nayy... boo tau akhir akhir ini boo belum bisa jadi yang terbaik dan belum punya banyak waktu buat selalu ada. tapi bukan berarti boo ga sayang. justru boo sayang banget sama nayy. di tengah sibuknya hari hari boo, nayy tetap jadi orang yang paling boo pikirin 🤍"
 };
 
 function showPopup(type) {
-    document.getElementById("popup-text").innerText = messages[type];
-    document.getElementById("popup").classList.add("active");
-    document.getElementById("overlay").classList.add("active");
+document.getElementById("popup-text").innerText = messages[type];
+document.getElementById("popup").classList.add("active");
+document.getElementById("overlay").classList.add("active");
 }
 
 function closePopup() {
-    document.getElementById("popup").classList.remove("active");
-    document.getElementById("overlay").classList.remove("active");
+document.getElementById("popup").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
 }
 
-// HEART FALL ANIMATION
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = "💙";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-    document.body.appendChild(heart);
+/* MUSIC PLAY AFTER CLICK (ANTI BLOCK BROWSER) */
+function startWebsite() {
+    const music = document.getElementById("bgm");
+    music.volume = 0.7;
+    music.play().catch(() => {});
+    document.getElementById("startScreen").style.display = "none";
+}
 
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
+/* HEART RAIN */
+setInterval(() => {
+const heart = document.createElement("div");
+heart.classList.add("heart");
+heart.innerText = "💙";
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+document.body.appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+}, 6000);
 }, 300);
 </script>
 
